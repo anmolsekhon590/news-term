@@ -8,6 +8,7 @@ counter = 0
 for node in content.findAll(("h3", {"class": "headline"})):
     if counter > 10:
         break
-    print("- ", node.text)
+    if counter > 0:
+        print("- ", node.text)
 
     counter = counter + 1
