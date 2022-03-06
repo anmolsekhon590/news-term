@@ -4,11 +4,7 @@ from bs4 import BeautifulSoup
 response = requests.get("https://www.cbc.ca/news")
 content = BeautifulSoup(response.content, "html.parser")
 
-counter = 0
-for node in content.findAll(("h3", {"class": "headline"})):
-    if counter > 10:
-        break
-    if counter > 0:
-        print("- ", node.text)
-
-    counter = counter + 1
+node = content.findAll(("h3", {"class": "headline"}))
+for i in range(10):
+    if i > 0:
+        print("- ", node[i].text)
